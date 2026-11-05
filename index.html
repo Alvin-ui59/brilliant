@@ -1,0 +1,2418 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Brilliant Hub Bookshop | Thogoto</title>
+
+    <meta name="description" content="Visit Brilliant Hub Bookshop at Thogoto Trading Centre for textbooks, stationery, exercise books and office supplies.">
+
+    <meta name="theme-color" content="#3445A5">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+    /* ==========================================
+       1. GLOBAL SETTINGS
+    ========================================== */
+
+    :root {
+        --bg: #F3F6FD;
+        --surface: #FFFFFF;
+        --surface2: #EAF0FC;
+        --text: #101832;
+        --muted: #687493;
+        --primary: #394BAF;
+        --primary-dark: #293A91;
+        --border: #DCE3F3;
+        --accent: #C6FF3D;
+        --success: #159B64;
+        --danger: #DC425B;
+        --shadow: 0 10px 35px rgba(24, 40, 90, .07);
+
+        --heading: 'Sora', sans-serif;
+        --body: 'DM Sans', sans-serif;
+
+        --radius: 18px;
+    }
+
+    [data-theme="dark"] {
+        --bg: #0A1020;
+        --surface: #141D35;
+        --surface2: #1B2744;
+        --text: #F2F5FF;
+        --muted: #A8B4D5;
+        --primary: #8394FF;
+        --primary-dark: #6C7EF0;
+        --border: #293653;
+        --shadow: 0 10px 35px rgba(0,0,0,.2);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 90px;
+    }
+
+    body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--body);
+        line-height: 1.6;
+        min-height: 100vh;
+        transition: background .25s, color .25s;
+    }
+
+    button, input, textarea, select {
+        font: inherit;
+    }
+
+    button, a {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .container {
+        width: min(100% - 48px, 1180px);
+        margin-inline: auto;
+    }
+
+    .section {
+        padding: 55px 0 0;
+    }
+
+    .section-heading {
+        margin-bottom: 25px;
+    }
+
+    .section-heading h2 {
+        font-family: var(--heading);
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        line-height: 1.3;
+        margin-bottom: 6px;
+    }
+
+    .section-heading p {
+        color: var(--muted);
+        font-size: .95rem;
+    }
+
+    /* ==========================================
+       2. HEADER
+    ========================================== */
+
+    .header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+        min-height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 25px;
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .brand img {
+        width: 185px;
+        height: 65px;
+        object-fit: contain;
+        object-position: left center;
+        display: block;
+    }
+
+    .brand-fallback {
+        display: none;
+        font-family: var(--heading);
+        font-weight: 800;
+        color: var(--primary);
+        font-size: 1.2rem;
+    }
+
+    .nav-area {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .navigation {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .navigation a {
+        font-size: .91rem;
+        font-weight: 700;
+        color: var(--muted);
+        transition: .2s;
+    }
+
+    .navigation a:hover,
+    .navigation a.active {
+        color: var(--primary);
+    }
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .theme-button,
+    .menu-button {
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        border-radius: 30px;
+        padding: 10px 15px;
+        font-size: .83rem;
+        font-weight: 700;
+    }
+
+    .menu-button {
+        display: none;
+        border-radius: 10px;
+        font-size: 1.25rem;
+    }
+
+    /* ==========================================
+       3. BUTTONS
+    ========================================== */
+
+    .btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid transparent;
+        padding: 13px 20px;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: .9rem;
+        transition: .2s ease;
+        text-align: center;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .btn-primary {
+        background: var(--primary);
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background: var(--primary-dark);
+    }
+
+    .btn-green {
+        background: var(--accent);
+        color: #101832;
+    }
+
+    .btn-outline {
+        border-color: var(--border);
+        background: transparent;
+        color: var(--text);
+    }
+
+    .btn-outline:hover {
+        border-color: var(--primary);
+    }
+
+    .btn-white {
+        border-color: rgba(255,255,255,.8);
+        color: white;
+        background: transparent;
+    }
+
+    /* ==========================================
+       4. HERO
+    ========================================== */
+
+    .hero {
+        margin-top: 25px;
+        border-radius: 25px;
+        background: linear-gradient(120deg, #3445A5, #4859C5);
+        color: white;
+        padding: clamp(28px, 5vw, 65px);
+        display: grid;
+        grid-template-columns: 1.5fr .8fr;
+        align-items: center;
+        gap: 35px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-tag {
+        display: inline-block;
+        padding: 7px 13px;
+        background: rgba(255,255,255,.13);
+        border: 1px solid rgba(255,255,255,.2);
+        border-radius: 30px;
+        font-size: .8rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+    }
+
+    .hero h1 {
+        font-family: var(--heading);
+        font-size: clamp(2.2rem, 5.5vw, 4rem);
+        line-height: 1.12;
+        letter-spacing: -.05em;
+        margin-bottom: 17px;
+    }
+
+    .hero-description {
+        max-width: 580px;
+        color: rgba(255,255,255,.88);
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .hero-art {
+        min-height: 230px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .hero-circle {
+        width: min(100%, 255px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: rgba(255,255,255,.1);
+        border: 1px solid rgba(255,255,255,.15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: clamp(6rem, 13vw, 10rem);
+        transform: rotate(-7deg);
+    }
+
+    /* Hero opening status hidden as requested.
+       The opening-hours section remains functional. */
+
+    .hero-status {
+        display: none !important;
+    }
+
+    .status-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #F4BB3B;
+    }
+
+    .status-dot.open {
+        background: #3CF2A4;
+    }
+
+    /* ==========================================
+       5. QUICK INFORMATION
+    ========================================== */
+
+    .quick-info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin-top: 22px;
+    }
+
+    .info-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 19px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+    }
+
+    .info-icon {
+        width: 46px;
+        height: 46px;
+        flex-shrink: 0;
+        border-radius: 14px;
+        background: var(--surface2);
+        display: grid;
+        place-items: center;
+        font-size: 1.35rem;
+    }
+
+    .info-card strong {
+        display: block;
+        font-size: .9rem;
+        font-family: var(--heading);
+    }
+
+    .info-card small {
+        display: block;
+        color: var(--muted);
+        font-size: .78rem;
+    }
+
+    /* ==========================================
+       6. PRODUCT SEARCH
+    ========================================== */
+
+    .shop-tools {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .search-box {
+        flex: 1;
+        min-width: 220px;
+        position: relative;
+    }
+
+    .search-box input {
+        width: 100%;
+        padding: 14px 17px 14px 45px;
+        border-radius: 13px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        outline: none;
+    }
+
+    .search-box input:focus {
+        border-color: var(--primary);
+    }
+
+    .search-icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.1rem;
+    }
+
+    .category-select {
+        min-width: 180px;
+        padding: 13px;
+        border-radius: 13px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+    }
+
+    /* ==========================================
+       7. PRODUCT GRID
+    ========================================== */
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .product {
+        min-height: 150px;
+        padding: 19px;
+        border: 1px solid var(--border);
+        border-radius: 17px;
+        background: var(--surface);
+        color: var(--text);
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: .2s;
+        box-shadow: var(--shadow);
+    }
+
+    .product:hover {
+        transform: translateY(-4px);
+        border-color: var(--primary);
+    }
+
+    .product.selected {
+        border: 2px solid var(--primary);
+        background: var(--surface2);
+    }
+
+    .product-icon {
+        font-size: 2rem;
+        margin-bottom: 12px;
+    }
+
+    .product-name {
+        font-family: var(--heading);
+        font-size: .88rem;
+        font-weight: 700;
+        line-height: 1.4;
+    }
+
+    .product-action {
+        color: var(--primary);
+        font-size: .74rem;
+        font-weight: 700;
+        margin-top: 9px;
+    }
+
+    .no-results {
+        display: none;
+        color: var(--muted);
+        text-align: center;
+        padding: 35px;
+        background: var(--surface);
+        border-radius: 15px;
+    }
+
+    /* ==========================================
+       8. WHY CHOOSE US
+    ========================================== */
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+
+    .feature {
+        padding: 22px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+        font-size: 1.9rem;
+        margin-bottom: 12px;
+    }
+
+    .feature h3 {
+        font-family: var(--heading);
+        font-size: .95rem;
+        margin-bottom: 6px;
+    }
+
+    .feature p {
+        font-size: .83rem;
+        color: var(--muted);
+    }
+
+    /* ==========================================
+       9. ORDER SECTION
+    ========================================== */
+
+    .order-layout {
+        display: grid;
+        grid-template-columns: .8fr 1.2fr;
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    .order-intro {
+        background: var(--primary);
+        color: white;
+        border-radius: 20px;
+        padding: 30px;
+    }
+
+    .order-intro h3 {
+        font-family: var(--heading);
+        font-size: 1.6rem;
+        margin-bottom: 13px;
+    }
+
+    .order-intro p {
+        color: rgba(255,255,255,.85);
+        font-size: .91rem;
+        margin-bottom: 20px;
+    }
+
+    .order-steps {
+        list-style: none;
+        display: grid;
+        gap: 13px;
+        font-size: .87rem;
+    }
+
+    .order-steps li {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .order-form-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: var(--shadow);
+    }
+
+    .order-form-card h3 {
+        font-family: var(--heading);
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .order-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+    }
+
+    .field {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .field.full {
+        grid-column: 1 / -1;
+    }
+
+    .field label {
+        font-size: .84rem;
+        font-weight: 700;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+        width: 100%;
+        padding: 13px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        color: var(--text);
+        border-radius: 11px;
+        outline: none;
+    }
+
+    .field textarea {
+        min-height: 90px;
+        resize: vertical;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+        border-color: var(--primary);
+    }
+
+    .form-submit {
+        grid-column: 1 / -1;
+        width: 100%;
+        border: none;
+    }
+
+    .form-message {
+        grid-column: 1 / -1;
+        font-size: .85rem;
+        color: var(--danger);
+    }
+
+    /* ==========================================
+       10. OPENING HOURS
+    ========================================== */
+
+    .hours-layout {
+        display: grid;
+        grid-template-columns: 1fr .85fr;
+        gap: 20px;
+    }
+
+    .hours-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: var(--shadow);
+    }
+
+    .hours-card h3 {
+        font-family: var(--heading);
+        margin-bottom: 18px;
+        font-size: 1.15rem;
+    }
+
+    .hours-status {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px;
+        background: var(--surface2);
+        border-radius: 12px;
+        margin-bottom: 18px;
+        font-weight: 700;
+        font-size: .9rem;
+    }
+
+    .hours-list {
+        display: grid;
+        gap: 0;
+    }
+
+    .hours-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+        padding: 12px 5px;
+        border-bottom: 1px solid var(--border);
+        font-size: .9rem;
+    }
+
+    .hours-row:last-child {
+        border-bottom: none;
+    }
+
+    .hours-row.today {
+        color: var(--primary);
+        font-weight: 800;
+    }
+
+    .closed {
+        color: var(--danger);
+    }
+
+    .hours-note {
+        font-size: .8rem;
+        color: var(--muted);
+        margin-top: 15px;
+    }
+
+    .hours-side {
+        background: linear-gradient(145deg, #3445A5, #5264C9);
+        color: white;
+        border-radius: 20px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hours-side .big-icon {
+        font-size: 3.3rem;
+        margin-bottom: 12px;
+    }
+
+    .hours-side h3 {
+        font-family: var(--heading);
+        font-size: 1.45rem;
+        margin-bottom: 10px;
+    }
+
+    .hours-side p {
+        color: rgba(255,255,255,.86);
+        font-size: .9rem;
+        margin-bottom: 20px;
+    }
+
+    /* ==========================================
+       11. LOCATION AND CONTACT
+    ========================================== */
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .contact-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: var(--shadow);
+    }
+
+    .contact-card h3 {
+        font-family: var(--heading);
+        margin-bottom: 12px;
+    }
+
+    .contact-card p {
+        color: var(--muted);
+        font-size: .9rem;
+        margin-bottom: 17px;
+    }
+
+    .contact-icon {
+        font-size: 2.2rem;
+        margin-bottom: 12px;
+    }
+
+    .map-frame {
+        width: 100%;
+        height: 210px;
+        border: 0;
+        border-radius: 13px;
+        margin-bottom: 15px;
+    }
+
+    /* ==========================================
+       12. CALL TO ACTION
+    ========================================== */
+
+    .cta {
+        margin-top: 55px;
+        padding: 38px;
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        text-align: center;
+    }
+
+    .cta h2 {
+        font-family: var(--heading);
+        font-size: clamp(1.4rem, 4vw, 2rem);
+        margin-bottom: 10px;
+    }
+
+    .cta p {
+        color: var(--muted);
+        margin-bottom: 20px;
+    }
+
+    /* ==========================================
+       13. FOOTER
+    ========================================== */
+
+    .footer {
+        margin-top: 55px;
+        padding: 35px 0 20px;
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 30px;
+        padding-bottom: 30px;
+    }
+
+    .footer-logo {
+        width: 175px;
+        height: 60px;
+        object-fit: contain;
+        object-position: left center;
+        margin-bottom: 12px;
+    }
+
+    .footer h3 {
+        font-family: var(--heading);
+        font-size: .95rem;
+        margin-bottom: 13px;
+    }
+
+    .footer p,
+    .footer a {
+        font-size: .85rem;
+        color: var(--muted);
+    }
+
+    .footer-links {
+        display: grid;
+        gap: 9px;
+    }
+
+    .footer a:hover {
+        color: var(--primary);
+    }
+
+    .copyright {
+        border-top: 1px solid var(--border);
+        padding-top: 18px;
+        text-align: center;
+        color: var(--muted);
+        font-size: .8rem;
+    }
+
+    /* ==========================================
+       14. FLOATING WHATSAPP BUTTON
+    ========================================== */
+
+    .floating-whatsapp {
+        position: fixed;
+        bottom: 22px;
+        right: 22px;
+        z-index: 90;
+        width: 57px;
+        height: 57px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #20C879;
+        color: white;
+        font-size: 1.7rem;
+        box-shadow: 0 7px 25px rgba(0,0,0,.2);
+        transition: .2s;
+    }
+
+    .floating-whatsapp:hover {
+        transform: scale(1.08);
+    }
+
+    /* ==========================================
+       15. RESPONSIVE DESIGN
+    ========================================== */
+
+    @media (max-width: 1000px) {
+
+        .product-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .features-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .hero {
+            grid-template-columns: 1.4fr .7fr;
+        }
+
+    }
+
+    @media (max-width: 760px) {
+
+        .container {
+            width: min(100% - 30px, 650px);
+        }
+
+        .header-inner {
+            min-height: 70px;
+            gap: 10px;
+        }
+
+        .brand img {
+            width: 145px;
+            height: 55px;
+        }
+
+        .menu-button {
+            display: block;
+        }
+
+        .nav-area {
+            display: none;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--surface);
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            flex-direction: column;
+            align-items: stretch;
+            gap: 17px;
+        }
+
+        .nav-area.show {
+            display: flex;
+        }
+
+        .navigation {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+        }
+
+        .navigation a {
+            padding: 12px 5px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-actions {
+            justify-content: space-between;
+        }
+
+        .hero {
+            grid-template-columns: 1fr;
+            padding: 32px 25px;
+        }
+
+        .hero-art {
+            min-height: 150px;
+        }
+
+        .hero-circle {
+            width: 150px;
+            font-size: 5rem;
+        }
+
+        .quick-info {
+            grid-template-columns: 1fr;
+        }
+
+        .product-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .order-layout,
+        .hours-layout,
+        .contact-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .footer-grid > div:first-child {
+            grid-column: 1 / -1;
+        }
+
+    }
+
+    @media (max-width: 480px) {
+
+        .container {
+            width: calc(100% - 24px);
+        }
+
+        .brand img {
+            width: 125px;
+            height: 50px;
+        }
+
+        .hero {
+            margin-top: 15px;
+            border-radius: 19px;
+            padding: 25px 19px;
+        }
+
+        .hero h1 {
+            font-size: 2.1rem;
+        }
+
+        .hero-buttons {
+            flex-direction: column;
+        }
+
+        .hero-buttons .btn {
+            width: 100%;
+        }
+
+        .hero-art {
+            min-height: 120px;
+        }
+
+        .hero-circle {
+            width: 120px;
+            font-size: 4rem;
+        }
+
+        .section {
+            padding-top: 40px;
+        }
+
+        .product-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 9px;
+        }
+
+        .product {
+            min-height: 125px;
+            padding: 13px;
+        }
+
+        .product-name {
+            font-size: .81rem;
+        }
+
+        .features-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+        }
+
+        .feature {
+            padding: 15px;
+        }
+
+        .order-form {
+            grid-template-columns: 1fr;
+        }
+
+        .field.full,
+        .form-submit,
+        .form-message {
+            grid-column: 1;
+        }
+
+        .order-form-card,
+        .hours-card,
+        .contact-card {
+            padding: 18px;
+        }
+
+        .order-intro {
+            padding: 23px;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .footer-grid > div:first-child {
+            grid-column: auto;
+        }
+
+        .cta {
+            padding: 25px 17px;
+        }
+
+        .floating-whatsapp {
+            width: 51px;
+            height: 51px;
+            right: 14px;
+            bottom: 14px;
+        }
+
+    }
+
+    @media (max-width: 340px) {
+
+        .product-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .features-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+            font-size: 1.8rem;
+        }
+
+        .theme-button {
+            padding: 9px;
+        }
+
+    }
+
+    </style>
+</head>
+
+<body>
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header class="header">
+
+    <div class="container header-inner">
+
+        <a href="#home" class="brand">
+
+            <img
+                src="./logo.png"
+                alt="Brilliant Hub Bookshop Logo"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+            >
+
+            <span class="brand-fallback">
+                Brilliant Hub
+            </span>
+
+        </a>
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            type="button">
+            ☰
+        </button>
+
+        <div class="nav-area" id="navArea">
+
+            <nav class="navigation">
+
+                <a href="#home">Home</a>
+                <a href="#shop">Shop</a>
+                <a href="#about">About</a>
+                <a href="#order">Order</a>
+                <a href="#hours">Opening Hours</a>
+                <a href="#contact">Contact</a>
+
+            </nav>
+
+            <div class="header-actions">
+
+                <button class="theme-button" id="themeButton" type="button">
+                    🌙 Dark mode
+                </button>
+
+                <a href="#order" class="btn btn-primary">
+                    Order now
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<!-- ==========================================
+     HERO SECTION
+========================================== -->
+
+<div class="container" id="home">
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="hero-tag">
+                📚 Your School & Office Supplies Partner
+            </span>
+
+            <h1>
+                Brilliant Hub Bookshop
+            </h1>
+
+            <p class="hero-description">
+                Everything you need for school, study and the office.
+                From textbooks and exercise books to stationery,
+                mathematical sets, watches and much more.
+                Find what you need at Thogoto Trading Centre.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#shop" class="btn btn-green">
+                    Explore our products
+                </a>
+
+                <a href="#contact" class="btn btn-white">
+                    Visit our shop
+                </a>
+
+            </div>
+
+            <div class="hero-status">
+
+                <span class="status-dot" id="heroDot"></span>
+
+                <span id="heroStatus">
+                    Checking shop hours...
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="hero-art">
+
+            <div class="hero-circle">
+                📚
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         QUICK INFORMATION
+    ====================================== -->
+
+    <div class="quick-info">
+
+        <div class="info-card">
+
+            <div class="info-icon">📍</div>
+
+            <div>
+                <strong>Our Location</strong>
+                <small>Thogoto Trading Centre</small>
+            </div>
+
+        </div>
+
+        <div class="info-card">
+
+            <div class="info-icon">🕒</div>
+
+            <div>
+                <strong>Opening Hours</strong>
+                <small id="quickHours">See our schedule below</small>
+            </div>
+
+        </div>
+
+        <div class="info-card">
+
+            <div class="info-icon">💬</div>
+
+            <div>
+                <strong>Easy Ordering</strong>
+                <small>Order directly on WhatsApp</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     SHOP SECTION
+========================================== -->
+
+<section class="section container" id="shop">
+
+    <div class="section-heading">
+
+        <h2>Explore Our Products</h2>
+
+        <p>
+            Quality stationery, books and supplies for every need.
+            Select an item to start your order.
+        </p>
+
+    </div>
+
+
+    <div class="shop-tools">
+
+        <div class="search-box">
+
+            <span class="search-icon">🔍</span>
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search books, pens, files and more..."
+                aria-label="Search products"
+            >
+
+        </div>
+
+        <select class="category-select" id="categoryFilter">
+
+            <option value="all">All categories</option>
+            <option value="books">Books</option>
+            <option value="stationery">Stationery</option>
+            <option value="school">School supplies</option>
+            <option value="office">Office supplies</option>
+            <option value="other">Other products</option>
+
+        </select>
+
+    </div>
+
+
+    <div class="product-grid" id="productGrid">
+
+        <button class="product" data-category="books" data-name="Story and general books" type="button">
+            <span class="product-icon">📚</span>
+            <span class="product-name">Story and general books</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="books" data-name="Textbooks" type="button">
+            <span class="product-icon">📖</span>
+            <span class="product-name">Textbooks</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="books" data-name="Exercise books" type="button">
+            <span class="product-icon">📓</span>
+            <span class="product-name">Exercise books</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="school" data-name="Mathematical sets" type="button">
+            <span class="product-icon">📐</span>
+            <span class="product-name">Mathematical sets</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="stationery" data-name="Pens and pencils" type="button">
+            <span class="product-icon">🖊️</span>
+            <span class="product-name">Pens and pencils</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="stationery" data-name="Scissors" type="button">
+            <span class="product-icon">✂️</span>
+            <span class="product-name">Scissors</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="stationery" data-name="Glue" type="button">
+            <span class="product-icon">🧴</span>
+            <span class="product-name">Glue</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="books" data-name="Book covers" type="button">
+            <span class="product-icon">📕</span>
+            <span class="product-name">Book covers</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="other" data-name="Watches" type="button">
+            <span class="product-icon">⌚</span>
+            <span class="product-name">Watches</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="office" data-name="Files and envelopes" type="button">
+            <span class="product-icon">🗂️</span>
+            <span class="product-name">Files and envelopes</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="stationery" data-name="Erasers" type="button">
+            <span class="product-icon">🧽</span>
+            <span class="product-name">Erasers</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="stationery" data-name="Rulers" type="button">
+            <span class="product-icon">📏</span>
+            <span class="product-name">Rulers</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="school" data-name="Calculators" type="button">
+            <span class="product-icon">🧮</span>
+            <span class="product-name">Calculators</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="school" data-name="Colour pencils" type="button">
+            <span class="product-icon">🖍️</span>
+            <span class="product-name">Colour pencils</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="office" data-name="Staplers and pins" type="button">
+            <span class="product-icon">📎</span>
+            <span class="product-name">Staplers and pins</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="office" data-name="Manila paper" type="button">
+            <span class="product-icon">📄</span>
+            <span class="product-name">Manila paper</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="office" data-name="Notebooks and diaries" type="button">
+            <span class="product-icon">📔</span>
+            <span class="product-name">Notebooks and diaries</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="school" data-name="School bags" type="button">
+            <span class="product-icon">🎒</span>
+            <span class="product-name">School bags</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="other" data-name="Water bottles" type="button">
+            <span class="product-icon">🧴</span>
+            <span class="product-name">Water bottles</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+        <button class="product" data-category="other" data-name="Other products" type="button">
+            <span class="product-icon">🛍️</span>
+            <span class="product-name">Other products</span>
+            <span class="product-action">Select item →</span>
+        </button>
+
+    </div>
+
+    <div class="no-results" id="noResults">
+        No matching products found. Try another search.
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     ABOUT / WHY CHOOSE US
+========================================== -->
+
+<section class="section container" id="about">
+
+    <div class="section-heading">
+
+        <h2>Why Choose Brilliant Hub?</h2>
+
+        <p>
+            Your convenient destination for books and everyday supplies.
+        </p>
+
+    </div>
+
+    <div class="features-grid">
+
+        <div class="feature">
+            <div class="feature-icon">📚</div>
+            <h3>Wide Selection</h3>
+            <p>
+                Books, stationery, school supplies and office essentials.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🎓</div>
+            <h3>For Every Learner</h3>
+            <p>
+                Find learning materials and supplies for your studies.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">💬</div>
+            <h3>Easy Ordering</h3>
+            <p>
+                Send your shopping requests conveniently through WhatsApp.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">📍</div>
+            <h3>Convenient Location</h3>
+            <p>
+                Find us at Thogoto Trading Centre in Kikuyu.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     ORDER SECTION
+========================================== -->
+
+<section class="section container" id="order">
+
+    <div class="section-heading">
+        <h2>Place Your Order</h2>
+        <p>
+            Tell us what you need and send your request directly to WhatsApp.
+        </p>
+    </div>
+
+    <div class="order-layout">
+
+        <div class="order-intro">
+
+            <h3>Order with Ease!</h3>
+
+            <p>
+                You don't need to visit the shop just to ask about an item.
+                Send us your requirements and we will receive your request.
+            </p>
+
+            <ul class="order-steps">
+                <li>✓ Select your product</li>
+                <li>✓ Enter your details</li>
+                <li>✓ Send your WhatsApp order</li>
+                <li>✓ Confirm availability with us</li>
+            </ul>
+
+        </div>
+
+
+        <div class="order-form-card">
+
+            <h3>Your Shopping Details</h3>
+
+            <form class="order-form" id="orderForm">
+
+                <div class="field">
+                    <label for="customerName">Full name *</label>
+                    <input type="text" id="customerName" placeholder="Your name" autocomplete="name" required>
+                </div>
+
+                <div class="field">
+                    <label for="customerPhone">Phone number</label>
+                    <input type="tel" id="customerPhone" placeholder="Your phone number" autocomplete="tel">
+                </div>
+
+                <div class="field">
+                    <label for="customerLocation">Location *</label>
+                    <input type="text" id="customerLocation" placeholder="e.g. Kikuyu" required>
+                </div>
+
+                <div class="field">
+                    <label for="quantity">Quantity *</label>
+                    <input type="number" id="quantity" min="1" max="10000" value="1" required>
+                </div>
+
+                <div class="field full">
+                    <label for="itemName">Product name *</label>
+                    <input type="text" id="itemName" placeholder="What would you like to order?" required>
+                </div>
+
+                <div class="field full">
+                    <label for="notes">Additional details (optional)</label>
+                    <textarea id="notes" placeholder="Any extra information about your order..."></textarea>
+                </div>
+
+                <p class="form-message" id="formMessage" role="alert"></p>
+
+                <button type="submit" class="btn btn-primary form-submit">
+                    💬 Send Order on WhatsApp
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     OPENING HOURS
+========================================== -->
+
+<section class="section container" id="hours">
+
+    <div class="section-heading">
+        <h2>Our Opening Hours</h2>
+        <p>
+            Plan your visit to Brilliant Hub Bookshop.
+        </p>
+    </div>
+
+    <div class="hours-layout">
+
+        <div class="hours-card">
+
+            <h3>Weekly Schedule</h3>
+
+            <div class="hours-status">
+                <span class="status-dot" id="hoursDot"></span>
+                <span id="hoursStatus">
+                    Checking opening hours...
+                </span>
+            </div>
+
+            <div class="hours-list" id="hoursList">
+                <!-- Generated by JavaScript -->
+            </div>
+
+            <p class="hours-note">
+                Opening times shown are the shop's configured schedule.
+                Please confirm any holiday changes with the shop.
+            </p>
+
+        </div>
+
+
+        <div class="hours-side">
+
+            <div class="big-icon">🕒</div>
+
+            <h3>We Look Forward to Seeing You!</h3>
+
+            <p>
+                Visit us for your school, study and office supplies.
+                We are located at Thogoto Trading Centre, Kikuyu.
+            </p>
+
+            <a href="#contact" class="btn btn-green">
+                Find our location
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     CONTACT AND LOCATION
+========================================== -->
+
+<section class="section container" id="contact">
+
+    <div class="section-heading">
+        <h2>Find Us & Get in Touch</h2>
+        <p>
+            Have a question? We are happy to hear from you.
+        </p>
+    </div>
+
+    <div class="contact-grid">
+
+        <div class="contact-card">
+
+            <div class="contact-icon">📍</div>
+
+            <h3>Visit Our Shop</h3>
+
+            <p>
+                Brilliant Hub Bookshop<br>
+                Thogoto Trading Centre<br>
+                Kikuyu, Kiambu County, Kenya
+            </p>
+
+            <iframe
+                class="map-frame"
+                src="https://maps.google.com/maps?q=Thogoto%20Trading%20Centre%20Kikuyu%20Kiambu&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Map showing Thogoto Trading Centre">
+            </iframe>
+
+            <a
+                href="https://www.google.com/maps/search/?api=1&query=Thogoto+Trading+Centre+Kikuyu+Kiambu"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-primary">
+
+                Get Directions
+
+            </a>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <div class="contact-icon">💬</div>
+
+            <h3>Contact Brilliant Hub</h3>
+
+            <p>
+                Need a textbook, stationery or office supplies?
+                Get in touch and ask us about availability.
+            </p>
+
+            <p>
+                <strong>Location:</strong><br>
+                Thogoto Trading Centre, Kikuyu
+            </p>
+
+            <a href="#" id="contactWhatsApp" class="btn btn-primary">
+                Chat on WhatsApp
+            </a>
+
+            <br><br>
+
+            <a href="#order" class="btn btn-outline">
+                Make an Order
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     CALL TO ACTION
+========================================== -->
+
+<div class="container">
+
+    <section class="cta">
+
+        <h2>Everything You Need in One Place!</h2>
+
+        <p>
+            From school books to everyday office essentials,
+            Brilliant Hub Bookshop is ready to serve you.
+        </p>
+
+        <a href="#shop" class="btn btn-primary">
+            Explore Products
+        </a>
+
+    </section>
+
+</div>
+
+</main>
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <img
+                    src="./logo.png"
+                    class="footer-logo"
+                    alt="Brilliant Hub Bookshop"
+                >
+
+                <p>
+                    Your destination for books, stationery,
+                    school and office supplies at Thogoto Trading Centre.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Quick Links</h3>
+
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#shop">Our Products</a>
+                    <a href="#about">About Us</a>
+                    <a href="#order">Place an Order</a>
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h3>Visit Us</h3>
+
+                <div class="footer-links">
+                    <a href="#hours">Opening Hours</a>
+                    <a href="#contact">Our Location</a>
+                    <a href="#contact">Contact Us</a>
+                    <a href="#shop">Shop Products</a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+            © <span id="year"></span> Brilliant Hub Bookshop.
+            All Rights Reserved.
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ==========================================
+     FLOATING WHATSAPP BUTTON
+========================================== -->
+
+<a
+    href="#"
+    class="floating-whatsapp"
+    id="floatingWhatsApp"
+    aria-label="Chat with Brilliant Hub on WhatsApp"
+    title="Chat on WhatsApp">
+
+    ☎
+
+</a>
+
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    /* ==========================================
+       1. SHOP CONFIGURATION
+    ========================================== */
+
+    // Replace this with the real shop WhatsApp number.
+    // Format: 254 followed by the 9-digit mobile number.
+
+    const SHOP_WHATSAPP = "254743614149";
+
+
+    // OPENING HOURS
+    // Monday-Friday: 8:00 AM - 7:00 PM
+    // Saturday: 8:00 AM - 6:00 PM
+    // Sunday: CLOSED
+
+    const OPENING_HOURS = {
+        0: null,
+        1: { open: 8, close: 19 },
+        2: { open: 8, close: 19 },
+        3: { open: 8, close: 19 },
+        4: { open: 8, close: 19 },
+        5: { open: 8, close: 19 },
+        6: { open: 8, close: 18 }
+    };
+
+    const DAYS = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+    ];
+
+
+    /* ==========================================
+       2. WHATSAPP FUNCTION
+    ========================================== */
+
+    function sendWhatsApp(message) {
+
+        if (!/^254\d{9}$/.test(SHOP_WHATSAPP)) {
+
+            alert(
+                "Please add the correct shop WhatsApp number in the JavaScript section."
+            );
+
+            return;
+
+        }
+
+        const url =
+            "https://wa.me/" +
+            SHOP_WHATSAPP +
+            "?text=" +
+            encodeURIComponent(message);
+
+        window.open(url, "_blank", "noopener,noreferrer");
+
+    }
+
+
+    const enquiryMessage =
+        "Hello Brilliant Hub Bookshop! I would like to make an enquiry about your products.";
+
+
+    [
+        "contactWhatsApp",
+        "floatingWhatsApp"
+    ].forEach(function(id) {
+
+        document.getElementById(id).addEventListener(
+            "click",
+            function(event) {
+
+                event.preventDefault();
+
+                sendWhatsApp(enquiryMessage);
+
+            }
+        );
+
+    });
+
+
+    /* ==========================================
+       3. MOBILE NAVIGATION
+    ========================================== */
+
+    const menuButton = document.getElementById("menuButton");
+
+    const navArea = document.getElementById("navArea");
+
+    menuButton.addEventListener("click", function() {
+
+        const isOpen = navArea.classList.toggle("show");
+
+        menuButton.textContent = isOpen ? "✕" : "☰";
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
+
+    });
+
+
+    document.querySelectorAll(".navigation a").forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+            navArea.classList.remove("show");
+
+            menuButton.textContent = "☰";
+
+            menuButton.setAttribute("aria-expanded", "false");
+
+        });
+
+    });
+
+
+    /* ==========================================
+       4. DARK / LIGHT MODE
+    ========================================== */
+
+    const themeButton = document.getElementById("themeButton");
+
+    themeButton.addEventListener("click", function() {
+
+        const current =
+            document.documentElement.getAttribute("data-theme");
+
+        const next = current === "dark" ? "light" : "dark";
+
+        document.documentElement.setAttribute("data-theme", next);
+
+        themeButton.textContent =
+            next === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
+
+    });
+
+
+    /* ==========================================
+       5. PRODUCT SEARCH AND FILTER
+    ========================================== */
+
+    const searchInput = document.getElementById("searchInput");
+
+    const categoryFilter = document.getElementById("categoryFilter");
+
+    const productCards = Array.from(
+        document.querySelectorAll(".product")
+    );
+
+    const noResults = document.getElementById("noResults");
+
+
+    function filterProducts() {
+
+        const search = searchInput.value.toLowerCase().trim();
+
+        const category = categoryFilter.value;
+
+        let visible = 0;
+
+        productCards.forEach(function(product) {
+
+            const name =
+                product.dataset.name.toLowerCase();
+
+            const productCategory =
+                product.dataset.category;
+
+            const matchesSearch =
+                name.includes(search);
+
+            const matchesCategory =
+                category === "all" ||
+                productCategory === category;
+
+            const show =
+                matchesSearch && matchesCategory;
+
+            product.style.display = show ? "flex" : "none";
+
+            if (show) {
+                visible++;
+            }
+
+        });
+
+        noResults.style.display =
+            visible === 0 ? "block" : "none";
+
+    }
+
+
+    searchInput.addEventListener("input", filterProducts);
+
+    categoryFilter.addEventListener("change", filterProducts);
+
+
+    /* ==========================================
+       6. PRODUCT SELECTION
+    ========================================== */
+
+    const itemInput = document.getElementById("itemName");
+
+    productCards.forEach(function(product) {
+
+        product.addEventListener("click", function() {
+
+            productCards.forEach(function(card) {
+
+                card.classList.remove("selected");
+
+            });
+
+            product.classList.add("selected");
+
+            itemInput.value = product.dataset.name;
+
+            document.getElementById("order").scrollIntoView({
+                behavior: "smooth"
+            });
+
+        });
+
+    });
+
+
+    itemInput.addEventListener("input", function() {
+
+        productCards.forEach(function(card) {
+
+            card.classList.remove("selected");
+
+        });
+
+    });
+
+
+    /* ==========================================
+       7. ORDER FORM
+    ========================================== */
+
+    const orderForm = document.getElementById("orderForm");
+
+    const formMessage = document.getElementById("formMessage");
+
+
+    orderForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const name =
+            document.getElementById("customerName").value.trim();
+
+        const phone =
+            document.getElementById("customerPhone").value.trim();
+
+        const location =
+            document.getElementById("customerLocation").value.trim();
+
+        const quantity =
+            Number(document.getElementById("quantity").value);
+
+        const item =
+            itemInput.value.trim();
+
+        const notes =
+            document.getElementById("notes").value.trim();
+
+
+        formMessage.textContent = "";
+
+
+        if (!name || !location || !item) {
+
+            formMessage.textContent =
+                "Please complete all required fields.";
+
+            return;
+
+        }
+
+
+        if (
+            !Number.isInteger(quantity) ||
+            quantity < 1 ||
+            quantity > 10000
+        ) {
+
+            formMessage.textContent =
+                "Please enter a valid quantity.";
+
+            return;
+
+        }
+
+
+        const message =
+
+            "Hello Brilliant Hub Bookshop!\n\n" +
+
+            "I would like to place an order.\n\n" +
+
+            "Customer name: " + name + "\n" +
+
+            "Phone number: " + (phone || "Not provided") + "\n" +
+
+            "Location: " + location + "\n" +
+
+            "Product: " + item + "\n" +
+
+            "Quantity: " + quantity + "\n" +
+
+            "Additional details: " + (notes || "None");
+
+
+        sendWhatsApp(message);
+
+    });
+
+
+    /* ==========================================
+       8. OPENING HOURS
+    ========================================== */
+
+    function getKenyaTime() {
+
+        const parts = new Intl.DateTimeFormat("en-GB", {
+
+            timeZone: "Africa/Nairobi",
+
+            weekday: "short",
+
+            hour: "2-digit",
+
+            minute: "2-digit",
+
+            hourCycle: "h23"
+
+        }).formatToParts(new Date());
+
+
+        const result = {};
+
+        parts.forEach(function(part) {
+
+            result[part.type] = part.value;
+
+        });
+
+
+        const shortDays = [
+            "Sun", "Mon", "Tue",
+            "Wed", "Thu", "Fri", "Sat"
+        ];
+
+
+        return {
+
+            day: shortDays.indexOf(result.weekday),
+
+            hour: Number(result.hour),
+
+            minute: Number(result.minute)
+
+        };
+
+    }
+
+
+    function formatTime(hour) {
+
+        const suffix = hour >= 12 ? "PM" : "AM";
+
+        const formatted = hour % 12 || 12;
+
+        return formatted + ":00 " + suffix;
+
+    }
+
+
+    function displayHours() {
+
+        const now = getKenyaTime();
+
+        const today = OPENING_HOURS[now.day];
+
+        const minutesNow =
+            now.hour * 60 + now.minute;
+
+        const isOpen =
+            today !== null &&
+            minutesNow >= today.open * 60 &&
+            minutesNow < today.close * 60;
+
+
+        const statusText =
+            document.getElementById("hoursStatus");
+
+        const heroStatus =
+            document.getElementById("heroStatus");
+
+        const hoursDot =
+            document.getElementById("hoursDot");
+
+        const heroDot =
+            document.getElementById("heroDot");
+
+
+        if (isOpen) {
+
+            statusText.textContent =
+                "We are OPEN now";
+
+            heroStatus.textContent =
+                "Open now • Closes at " + formatTime(today.close);
+
+            hoursDot.classList.add("open");
+
+            heroDot.classList.add("open");
+
+        } else {
+
+            statusText.textContent =
+                "We are CLOSED now";
+
+            heroStatus.textContent =
+                "Currently closed • See our opening hours";
+
+            hoursDot.classList.remove("open");
+
+            heroDot.classList.remove("open");
+
+        }
+
+
+        const hoursList =
+            document.getElementById("hoursList");
+
+        hoursList.innerHTML = "";
+
+
+        // Display Monday to Sunday.
+
+        const order = [1, 2, 3, 4, 5, 6, 0];
+
+
+        order.forEach(function(day) {
+
+            const hours = OPENING_HOURS[day];
+
+            const row = document.createElement("div");
+
+            row.className = "hours-row";
+
+            if (day === now.day) {
+
+                row.classList.add("today");
+
+            }
+
+
+            const dayName = document.createElement("span");
+
+            dayName.textContent = DAYS[day];
+
+
+            const time = document.createElement("span");
+
+            if (hours === null) {
+
+                time.textContent = "Closed";
+
+                time.classList.add("closed");
+
+            } else {
+
+                time.textContent =
+                    formatTime(hours.open) +
+                    " – " +
+                    formatTime(hours.close);
+
+            }
+
+
+            row.appendChild(dayName);
+
+            row.appendChild(time);
+
+            hoursList.appendChild(row);
+
+        });
+
+
+        document.getElementById("quickHours").textContent =
+            "Mon–Fri 8 AM–7 PM";
+
+    }
+
+
+    displayHours();
+
+    // Refresh shop status every minute.
+
+    setInterval(displayHours, 60000);
+
+
+    /* ==========================================
+       9. COPYRIGHT YEAR
+    ========================================== */
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+
+});
+
+</script>
+
+</body>
+</html>
